@@ -57,6 +57,7 @@ public class ConvidadoBO {
     }
 
     public ArrayList<ConvidadoTO> findByIdConvite(String idConvite){
+        System.out.println("BO idConvite=" + idConvite);
         convidadoDAO = new ConvidadoDAO();
         return  convidadoDAO.findByIdConvite(idConvite);
     }
