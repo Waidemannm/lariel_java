@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class ConviteTO {
-    @NotBlank
     @Size(max = 7, message = "O id do convite deve ter no máximo 7 caracteres")
     private String idConvite;
     @NotBlank(message = "O nome do convite é obrigatório")
