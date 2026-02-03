@@ -42,6 +42,7 @@ public class ConviteResource {
         return response.build();
     }
 
+    @GET
     @Path("/{nomeConvite}/{idConvite}")
     public Response findConvite(@PathParam("nomeConvite")String nomeConvite, @PathParam("idConvite") String idConvite){
         ConviteTO resultado = conviteBO.findConvite(nomeConvite, idConvite);
@@ -55,7 +56,7 @@ public class ConviteResource {
         return response.build();
     }
 
-
+    @DELETE
     @Path("/{idConvite}")
     public Response delete(@PathParam("idConvite")String idConvite){
         Response.ResponseBuilder response = null;
@@ -82,6 +83,7 @@ public class ConviteResource {
         return response.build();
     }
 
+    @GET
     @Path("/{nomeConvite}")
     public Response findConviteADM(@PathParam("nomeConvite")String nomeConvite){
         ConviteTO resultado = conviteBO.findConviteADM(nomeConvite);
