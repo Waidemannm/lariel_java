@@ -86,7 +86,7 @@ public class ConvidadoDAO {
         String sql = "UPDATE T_LS_CONVIDADOS SET NM_CONVIDADO = ?, ST_PRESENCA = ? WHERE ID_CONVIDADO = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, convidadoTO.getNomeConvidado());
-            ps.setString(2, convidadoTO.getStatus());
+            ps.setString(2, convidadoTO.getStatus().toUpperCase());
             ps.setLong(3, convidadoTO.getIdConvidado());
             if (ps.executeUpdate() > 0) {
                 return convidadoTO;
@@ -104,7 +104,7 @@ public class ConvidadoDAO {
     public ConvidadoTO updateStatus(ConvidadoTO convidadoTO){
         String sql = "UPDATE T_LS_CONVIDADOS ST_PRESENCA = ? WHERE ID_CONVIDADO = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
-            ps.setString(1, convidadoTO.getStatus());
+            ps.setString(1, convidadoTO.getStatus().toUpperCase());
             ps.setLong(2, convidadoTO.getIdConvidado());
             if (ps.executeUpdate() > 0) {
                 return convidadoTO;

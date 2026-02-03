@@ -7,7 +7,7 @@ public class ConvidadoTO {
     private Long idConvidado;
     @Size(max = 7, message = "O id do convite deve ter no máximo 7 caracteres")
     private String idConvite;
-    @NotBlank(message = "O nome do convidado é obrigatório")
+    @Size(max = 300, message = "O nome do convidado deve ter no máximo 300 caracteres")
     private String nomeConvidado;
     @NotBlank(message = "O status é obrigatório")
     private String status;
