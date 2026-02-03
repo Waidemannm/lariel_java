@@ -120,7 +120,6 @@ public class ConvidadoDAO {
     }
 
     public ArrayList<ConvidadoTO> findByIdConvite(String idConvite){
-        System.out.println("DAO idConvite=" + idConvite);
         ArrayList<ConvidadoTO> convidados = new ArrayList<>();
         String sql = "SELECT * FROM T_LS_CONVIDADOS WHERE ID_NM_CONVITE = ? ORDER BY NM_CONVIDADO";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
