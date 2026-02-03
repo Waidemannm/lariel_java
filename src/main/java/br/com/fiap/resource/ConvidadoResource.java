@@ -103,9 +103,11 @@ public class ConvidadoResource {
     @Path("/{idConvite}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findByIdConvite(@PathParam("idConvite") String idConvite){
+        System.out.println("ENTROU no endpoint /convidados/" + idConvite);
+
         ArrayList<ConvidadoTO> resultado = convidadoBO.findByIdConvite(idConvite);
         Response.ResponseBuilder response = null;
-        if (resultado != null || !resultado.isEmpty()){
+        if (resultado != null){
             response = Response.ok();
         }else {
             response = Response.status(404);
