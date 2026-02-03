@@ -102,7 +102,7 @@ public class ConvidadoDAO {
     }
 
     public ConvidadoTO updateStatus(ConvidadoTO convidadoTO){
-        String sql = "UPDATE T_LS_CONVIDADOS ST_PRESENCA = ? WHERE ID_CONVIDADO = ?";
+        String sql = "UPDATE T_LS_CONVIDADOS SET ST_PRESENCA = ? WHERE ID_CONVIDADO = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, convidadoTO.getStatus().toUpperCase());
             ps.setLong(2, convidadoTO.getIdConvidado());
