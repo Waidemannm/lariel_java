@@ -69,6 +69,7 @@ public class ConvidadoResource {
 
     @PUT
     @Path("/{idConvidado}")
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@Valid ConvidadoTO convidadoTO, @PathParam("idConvidado") Long idConvidado){
         convidadoTO.setIdConvidado(idConvidado);
         ConvidadoTO resultado = convidadoBO.update(convidadoTO);
@@ -84,6 +85,7 @@ public class ConvidadoResource {
 
     @PUT
     @Path("/{idConvidado}")
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response updateStatus(@Valid ConvidadoTO convidadoTO, @PathParam("idConvidado") Long idConvidado){
         convidadoTO.setIdConvidado(idConvidado);
         ConvidadoTO resultado = convidadoBO.updateStatus(convidadoTO);

@@ -44,6 +44,7 @@ public class ConviteResource {
 
     @GET
     @Path("/{nomeConvite}/{idConvite}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response findConvite(@PathParam("nomeConvite")String nomeConvite, @PathParam("idConvite") String idConvite){
         ConviteTO resultado = conviteBO.findConvite(nomeConvite, idConvite);
         Response.ResponseBuilder response = null;
@@ -70,6 +71,7 @@ public class ConviteResource {
 
     @PUT
     @Path("/{idConvite}")
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@Valid ConviteTO conviteTO,@PathParam("idConvite") String idConvite){
         conviteTO.setIdConvite(idConvite);
         ConviteTO resultado = conviteBO.update(conviteTO);
@@ -85,6 +87,7 @@ public class ConviteResource {
 
     @GET
     @Path("/{nomeConvite}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response findConviteADM(@PathParam("nomeConvite")String nomeConvite){
         ConviteTO resultado = conviteBO.findConviteADM(nomeConvite);
         Response.ResponseBuilder response = null;
