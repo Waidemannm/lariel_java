@@ -105,7 +105,7 @@ public class ConvidadoResource {
     public Response findByIdConvite(@PathParam("idConvite") String idConvite){
         ArrayList<ConvidadoTO> resultado = convidadoBO.findByIdConvite(idConvite);
         Response.ResponseBuilder response = null;
-        if (resultado != null ){
+        if (resultado != null || !resultado.isEmpty()){
             response = Response.ok();
         }else {
             response = Response.status(404);
