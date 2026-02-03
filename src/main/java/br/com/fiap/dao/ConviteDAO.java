@@ -28,7 +28,7 @@ public class ConviteDAO {
     }
 
     public ConviteTO save(ConviteTO conviteTO){
-        String sql = "INSERT INTO T_LSNM_CONVITE (ID_NM_CONVITE, NM_CONVITE) VALUES (FN_GERAR_ID_CONVITE(), ?)";
+        String sql = "INSERT INTO T_LS_NM_CONVITE (ID_NM_CONVITE, NM_CONVITE) VALUES (FN_GERAR_ID_CONVITE(), ?)";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, conviteTO.getNomeConvite());
             if (ps.executeUpdate() > 0){
