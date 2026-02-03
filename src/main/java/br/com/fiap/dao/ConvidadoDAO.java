@@ -123,6 +123,7 @@ public class ConvidadoDAO {
         ArrayList<ConvidadoTO> convidados = new ArrayList<>();
         String sql = "SELECT * FROM T_LS_CONVIDADOS WHERE ID_NM_CONVITE = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
+            ps.setString(1, idConvite);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ConvidadoTO convidado = new ConvidadoTO();
