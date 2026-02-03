@@ -31,9 +31,9 @@ public class ConvidadoDAO {
     public ConvidadoTO save(ConvidadoTO convidadoTO){
         String sql = "INSERT INTO T_LS_CONVIDADOS (ID_NM_CONVITE, NM_CONVIDADO, ST_PRESENCA) VALUES (?, ?, ?)";
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
-            ps.setString(1, convidadoTO.getIdConvite());
+            ps.setString(1, convidadoTO.getIdConvite().toUpperCase());
             ps.setString(2, convidadoTO.getNomeConvidado());
-            ps.setString(3, convidadoTO.getStatus());
+            ps.setString(3, convidadoTO.getStatus().toUpperCase());
             if (ps.executeUpdate() > 0){
                 return convidadoTO;
             }else {
