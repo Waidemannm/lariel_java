@@ -102,7 +102,7 @@ public class ConvidadoResource {
     @GET
     @Path("/{idConvite}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findByIdConvite(String idConvite){
+    public Response findByIdConvite(@PathParam("idConvite") String idConvite){
         ArrayList<ConvidadoTO> resultado = convidadoBO.findByIdConvite(idConvite);
         Response.ResponseBuilder response = null;
         if (resultado != null ){
