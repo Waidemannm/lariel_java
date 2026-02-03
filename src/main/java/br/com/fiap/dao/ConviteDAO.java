@@ -82,6 +82,7 @@ public class ConviteDAO {
         String sql = "UPDATE T_LS_NM_CONVITE SET NM_CONVITE = ? WHERE ID_NM_CONVITE = ?";
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, conviteTO.getNomeConvite());
+            ps.setString(2, conviteTO.getIdConvite());
             if (ps.executeUpdate() > 0) {
                 return conviteTO;
             } else {
