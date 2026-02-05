@@ -69,6 +69,7 @@ public class ConviteDAO {
         String sql = "DELETE FROM T_LS_CONVIDADOS WHERE ID_NM_CONVITE = ?; DELETE FROM T_LS_NM_CONVITE WHERE ID_NM_CONVITE = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, idConvite);
+            ps.setString(2, idConvite);
             return ps.executeUpdate() > 0;
         }catch (SQLException e ){
             System.out.println("Erro ao deletar convite: " + e.getMessage());
