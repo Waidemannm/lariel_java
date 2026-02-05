@@ -66,7 +66,10 @@ public class ConviteDAO {
     }
 
     public boolean delete(String idConvite){
-        String sql = "DELETE FROM T_LS_CONVIDADOS WHERE ID_NM_CONVITE = ?; DELETE FROM T_LS_NM_CONVITE WHERE ID_NM_CONVITE = ?";
+        String sql = "BEGIN " +
+                "  DELETE FROM T_LS_CONVIDADOS WHERE ID_NM_CONVITE = ?; " +
+                "  DELETE FROM T_LS_NM_CONVITE WHERE ID_NM_CONVITE = ?; " +
+                "END;";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, idConvite);
             ps.setString(2, idConvite);
