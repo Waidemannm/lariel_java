@@ -140,4 +140,26 @@ public class ConvidadoDAO {
         }
         return convidados;
     }
+
+    public ArrayList findConfirmados(String status){
+        ArrayList<ConvidadoTO> convidadosConfirmados = new ArrayList<>();
+        String sql = "SELECT * FROM T_LS_CONVIDADOS WHERE ST_PRESENCA = ? ORDER BY NM_CONVIDADO";
+        try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
+            ps.setString(1, status);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ConvidadoTO convidado = new ConvidadoTO();
+                convidado.setIdConvidado(rs.getLong("ID_CONVIDADO"));
+                convidado.setIdConvite(rs.getString("ID_NM_CONVITE"));
+                convidado.setNomeConvidado(rs.getString("NM_CONVIDADO"));
+                convidado.setStatus(rs.getString("ST_PRESENCA"));
+                convidadosConfirmados.add(convidado);
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao procurar convidados confirmados deste convite: " + e.getMessage());
+        }finally {
+            ConnectionFactory.closeConnection();
+        }
+        return convidadosConfirmados;
+    }
 }

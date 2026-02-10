@@ -113,4 +113,19 @@ public class ConvidadoResource {
         response.entity(resultado);
         return response.build();
     }
+
+    @GET
+    @Path("/confirmados/{status}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findConfirmados(@PathParam("status") String status){
+        ArrayList<ConvidadoTO> resultado = convidadoBO.findCOnfirmados(status);
+        Response.ResponseBuilder response = null;
+        if (resultado != null){
+            response = Response.ok();
+        }else {
+            response = Response.status(404);
+        }
+        response.entity(resultado);
+        return response.build();
+    }
 }

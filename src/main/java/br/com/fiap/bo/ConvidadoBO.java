@@ -60,4 +60,9 @@ public class ConvidadoBO {
         convidadoDAO = new ConvidadoDAO();
         return  convidadoDAO.findByIdConvite(idConvite);
     }
+
+    public ArrayList<ConvidadoTO> findCOnfirmados(String status){
+        convidadoDAO = new ConvidadoDAO();
+        return  convidadoDAO.findConfirmados(status);
+    }
 }
