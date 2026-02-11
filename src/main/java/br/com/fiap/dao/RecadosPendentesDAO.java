@@ -16,7 +16,7 @@ public class RecadosPendentesDAO {
             while (rs.next()){
                 RecadosPendentesTO recadoPendenteTO = new RecadosPendentesTO();
                 recadoPendenteTO.setIdRecadoPendente(rs.getLong("ID_RECADO_PENDENTE"));
-                recadoPendenteTO.setNomeConvidados(rs.getString("NOME_CONVIDADOS"));
+                recadoPendenteTO.setNomeConvidados(rs.getString("NM_CONVIDADOS"));
                 recadoPendenteTO.setMensagem(rs.getString("MENSAGEM"));
                 recadosPendentesTO.add(recadoPendenteTO);
             }
