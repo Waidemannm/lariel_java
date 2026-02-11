@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Path("/pendentes")
 public class RecadosPendentesResource {
 
-    private RecadosPendetesBO recadosPendetesBO;
+    private RecadosPendetesBO recadosPendetesBO = new RecadosPendetesBO();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
