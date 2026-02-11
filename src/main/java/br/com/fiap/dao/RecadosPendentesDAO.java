@@ -47,7 +47,7 @@ public class RecadosPendentesDAO {
     }
 
     public boolean delete(Long idRecadoPendente){
-        String sql = "DELETE FROM T_LS_RECADOS_PENDENTES WHERE ID_RECADO_ACEITO = ?";
+        String sql = "DELETE FROM T_LS_RECADOS_PENDENTES WHERE ID_RECADO_PENDENTE = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setLong(1, idRecadoPendente);
             return ps.executeUpdate() > 0;
