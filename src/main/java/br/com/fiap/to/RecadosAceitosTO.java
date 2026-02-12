@@ -10,17 +10,15 @@ public class RecadosAceitosTO {
     @NotBlank
     @Size(max = 300, message = "O nome deve ter no máximo 300 caracteres")
     private String nomeConvidados;
-    private byte[] imagem;
 
     public RecadosAceitosTO(){
 
     }
 
-    public RecadosAceitosTO(Long idRecadoAcetio, String mensagem, String nomeConvidados, byte[] imagem) {
+    public RecadosAceitosTO(Long idRecadoAcetio, String mensagem, String nomeConvidados) {
         this.idRecadoAceito = idRecadoAcetio;
         this.mensagem = mensagem;
         this.nomeConvidados = nomeConvidados;
-        this.imagem = imagem;
     }
 
     public Long getIdRecadoAceito() {
@@ -45,13 +43,5 @@ public class RecadosAceitosTO {
 
     public void setNomeConvidados(String nomeConvidados) {
         this.nomeConvidados = nomeConvidados;
-    }
-
-    public byte[] getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
     }
 }

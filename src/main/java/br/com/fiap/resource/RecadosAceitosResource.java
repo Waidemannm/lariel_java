@@ -2,12 +2,10 @@ package br.com.fiap.resource;
 
 import br.com.fiap.bo.RecadosAceitosBO;
 import br.com.fiap.to.RecadosAceitosTO;
-import io.vertx.ext.web.FileUpload;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.jboss.resteasy.reactive.RestForm;
 
 import java.util.ArrayList;
 
@@ -32,10 +30,8 @@ public class RecadosAceitosResource {
     }
 
     @POST
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response save(@Valid RecadosAceitosTO recadosAceitosTO, @RestForm String nomeConvidados,
-                         @RestForm String mensagem,
-                         @RestForm FileUpload imagem){
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response save(@Valid RecadosAceitosTO recadosAceitosTO){
         RecadosAceitosTO resultado = recadosAceitosBO.save(recadosAceitosTO);
         Response.ResponseBuilder response = null;
         if (resultado != null){

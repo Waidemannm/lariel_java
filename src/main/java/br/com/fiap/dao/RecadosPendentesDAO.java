@@ -18,7 +18,6 @@ public class RecadosPendentesDAO {
                 recadoPendenteTO.setIdRecadoPendente(rs.getLong("ID_RECADO_PENDENTE"));
                 recadoPendenteTO.setNomeConvidados(rs.getString("NM_CONVIDADOS"));
                 recadoPendenteTO.setMensagem(rs.getString("MENSAGEM"));
-                recadoPendenteTO.setImagem(rs.getBytes("IMG_ARQUIVO"));
                 recadosPendentesTO.add(recadoPendenteTO);
             }
         } catch (SQLException e){
@@ -30,11 +29,10 @@ public class RecadosPendentesDAO {
     }
 
     public RecadosPendentesTO save(RecadosPendentesTO recadosPendentesTO){
-        String sql = "INSERT INTO T_LS_RECADOS_PENDENTES (MENSAGEM, NM_CONVIDADOS, IMG_ARQUIVO) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO T_LS_RECADOS_PENDENTES (MENSAGEM, NM_CONVIDADOS) VALUES (?, ?)";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, recadosPendentesTO.getMensagem());
             ps.setString(2, recadosPendentesTO.getNomeConvidados());
-            ps.setBytes(3, recadosPendentesTO.getImagem());
             if (ps.executeUpdate() > 0){
                 return recadosPendentesTO;
             }else {
