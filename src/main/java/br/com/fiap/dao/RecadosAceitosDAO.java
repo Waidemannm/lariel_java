@@ -15,9 +15,10 @@ public class RecadosAceitosDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 RecadosAceitosTO recadoPendenteTO = new RecadosAceitosTO();
-                recadoPendenteTO.setIdRecadoPendente(rs.getLong("ID_RECADO_ACEITO"));
+                recadoPendenteTO.setIdRecadoAceito(rs.getLong("ID_RECADO_ACEITO"));
                 recadoPendenteTO.setNomeConvidados(rs.getString("NM_CONVIDADOS"));
                 recadoPendenteTO.setMensagem(rs.getString("MENSAGEM"));
+                recadoPendenteTO.setImagem(rs.getBytes("IMG_ARQUIVO"));
                 recadosPendentesTO.add(recadoPendenteTO);
             }
         } catch (SQLException e){
@@ -29,10 +30,11 @@ public class RecadosAceitosDAO {
     }
 
     public RecadosAceitosTO save(RecadosAceitosTO recadosAceitosTO){
-        String sql = "INSERT INTO T_LS_RECADOS_ACEITOS (MENSAGEM, NM_CONVIDADOS) VALUES (?, ?)";
+        String sql = "INSERT INTO T_LS_RECADOS_ACEITOS (MENSAGEM, NM_CONVIDADOS, IMG_ARQUIVO) VALUES (?, ?, ?)";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, recadosAceitosTO.getMensagem());
             ps.setString(2, recadosAceitosTO.getNomeConvidados());
+            ps.setBytes(3, recadosAceitosTO.getImagem());
             if (ps.executeUpdate() > 0){
                 return recadosAceitosTO;
             }else {

@@ -10,15 +10,17 @@ public class RecadosPendentesTO {
     @NotBlank
     @Size(max = 300, message = "O nome deve ter no máximo 300 caracteres")
     private String nomeConvidados;
+    private byte[] imagem;
 
     public RecadosPendentesTO(){
 
     }
 
-    public RecadosPendentesTO(Long idRecadoPendente, String mensagem, String nomeConvidados) {
+    public RecadosPendentesTO(Long idRecadoPendente, String mensagem, String nomeConvidados, byte[] imagem) {
         this.idRecadoPendente = idRecadoPendente;
         this.mensagem = mensagem;
         this.nomeConvidados = nomeConvidados;
+        this.imagem = imagem;
     }
 
     public Long getIdRecadoPendente() {
@@ -43,5 +45,13 @@ public class RecadosPendentesTO {
 
     public void setNomeConvidados(String nomeConvidados) {
         this.nomeConvidados = nomeConvidados;
+    }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
     }
 }
