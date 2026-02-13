@@ -1,7 +1,10 @@
 package br.com.fiap.to;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.time.LocalDate;
 
 public class RecadosAceitosTO {
     private Long idRecadoAceito;
@@ -10,15 +13,17 @@ public class RecadosAceitosTO {
     @NotBlank
     @Size(max = 300, message = "O nome deve ter no máximo 300 caracteres")
     private String nomeConvidados;
+    private LocalDate dataMensagem;
 
     public RecadosAceitosTO(){
 
     }
 
-    public RecadosAceitosTO(Long idRecadoAcetio, String mensagem, String nomeConvidados) {
+    public RecadosAceitosTO(Long idRecadoAcetio, String mensagem, String nomeConvidados, LocalDate dataMensagem) {
         this.idRecadoAceito = idRecadoAcetio;
         this.mensagem = mensagem;
         this.nomeConvidados = nomeConvidados;
+        this.dataMensagem = dataMensagem;
     }
 
     public Long getIdRecadoAceito() {
@@ -43,5 +48,13 @@ public class RecadosAceitosTO {
 
     public void setNomeConvidados(String nomeConvidados) {
         this.nomeConvidados = nomeConvidados;
+    }
+
+    public LocalDate getDataMensagem() {
+        return dataMensagem;
+    }
+
+    public void setDataMensagem(LocalDate dataMensagem) {
+        this.dataMensagem = dataMensagem;
     }
 }

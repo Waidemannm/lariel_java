@@ -18,6 +18,7 @@ public class RecadosPendentesDAO {
                 recadoPendenteTO.setIdRecadoPendente(rs.getLong("ID_RECADO_PENDENTE"));
                 recadoPendenteTO.setNomeConvidados(rs.getString("NM_CONVIDADOS"));
                 recadoPendenteTO.setMensagem(rs.getString("MENSAGEM"));
+                recadoPendenteTO.setDataMensagem(rs.getDate("DT_MENSAGEM").toLocalDate());
                 recadosPendentesTO.add(recadoPendenteTO);
             }
         } catch (SQLException e){

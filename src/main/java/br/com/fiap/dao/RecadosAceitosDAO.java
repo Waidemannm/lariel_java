@@ -2,6 +2,7 @@ package br.com.fiap.dao;
 
 import br.com.fiap.to.RecadosAceitosTO;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ public class RecadosAceitosDAO {
                 recadoPendenteTO.setIdRecadoAceito(rs.getLong("ID_RECADO_ACEITO"));
                 recadoPendenteTO.setNomeConvidados(rs.getString("NM_CONVIDADOS"));
                 recadoPendenteTO.setMensagem(rs.getString("MENSAGEM"));
+                recadoPendenteTO.setDataMensagem(rs.getDate("DT_MENSAGEM").toLocalDate());
                 recadosPendentesTO.add(recadoPendenteTO);
             }
         } catch (SQLException e){
