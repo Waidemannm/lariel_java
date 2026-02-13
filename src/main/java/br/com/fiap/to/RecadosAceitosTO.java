@@ -1,5 +1,6 @@
 package br.com.fiap.to;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -13,6 +14,7 @@ public class RecadosAceitosTO {
     @NotBlank
     @Size(max = 300, message = "O nome deve ter no máximo 300 caracteres")
     private String nomeConvidados;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dataMensagem;
 
     public RecadosAceitosTO(){
