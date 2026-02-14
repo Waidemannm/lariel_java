@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class RecadosAceitosDAO {
     public ArrayList<RecadosAceitosTO> findAll(){
         ArrayList<RecadosAceitosTO> recadosPendentesTO = new ArrayList<>();
-        String sql = "SELECT * FROM T_LS_RECADOS_ACEITOS";
+        String sql = "SELECT * FROM T_LS_RECADOS_ACEITOS ORDER BY DT_MENSAGEM DESC";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){

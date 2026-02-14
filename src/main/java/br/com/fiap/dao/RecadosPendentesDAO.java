@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class RecadosPendentesDAO {
     public ArrayList<RecadosPendentesTO> findAll(){
         ArrayList<RecadosPendentesTO> recadosPendentesTO = new ArrayList<>();
-        String sql = "SELECT * FROM T_LS_RECADOS_PENDENTES";
+        String sql = "SELECT * FROM T_LS_RECADOS_PENDENTES ORDER BY DT_MENSAGEM DESC";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
