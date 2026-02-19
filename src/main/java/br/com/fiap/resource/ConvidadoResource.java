@@ -100,11 +100,11 @@ public class ConvidadoResource {
     }
 
     @PUT
-    @Path("/ausencia/update/{idConvidado}")
+    @Path("/ausencia/{idConvidado}")
     public Response updateStatusAusencia(@PathParam("idConvidado") Long idConvidado){
         ConvidadoTO convidadoTO = new ConvidadoTO();
         convidadoTO.setIdConvidado(idConvidado);
-        ConvidadoTO resultado = convidadoBO.updateStatus(convidadoTO);
+        ConvidadoTO resultado = convidadoBO.updateStatusAusencia(convidadoTO);
         Response.ResponseBuilder response = null;
         if (resultado != null){
             response = Response.created(null);  // 201 - CREATED
