@@ -85,7 +85,8 @@ public class ConvidadoResource {
 
     @PUT
     @Path("/status_update/{idConvidado}")
-    public Response updateStatus(@Valid ConvidadoTO convidadoTO, @PathParam("idConvidado") Long idConvidado){
+    public Response updateStatus(@PathParam("idConvidado") Long idConvidado){
+        ConvidadoTO convidadoTO = new ConvidadoTO();
         convidadoTO.setIdConvidado(idConvidado);
         ConvidadoTO resultado = convidadoBO.updateStatus(convidadoTO);
         Response.ResponseBuilder response = null;
