@@ -100,7 +100,7 @@ public class ConvidadoResource {
     }
 
     @PUT
-    @Path("/ausencia/{idConvidado}")
+    @Path("/ausencia/update/{idConvidado}")
     public Response updateStatusAusencia(@PathParam("idConvidado") Long idConvidado){
         ConvidadoTO convidadoTO = new ConvidadoTO();
         convidadoTO.setIdConvidado(idConvidado);
