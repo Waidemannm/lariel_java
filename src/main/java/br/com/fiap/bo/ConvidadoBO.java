@@ -48,11 +48,6 @@ public class ConvidadoBO {
 
     public ConvidadoTO updateStatus(ConvidadoTO convidadoTO){
         convidadoDAO = new ConvidadoDAO();
-        String status = convidadoTO.getStatus().trim().toUpperCase();
-        List<String> tiposStatus = List.of("C", "P", "A");
-        if (!tiposStatus.contains(status)){
-            throw new RuntimeException("Tipo de status inválido. Valores aceitos: " + tiposStatus);
-        }
         return convidadoDAO.updateStatus(convidadoTO);
     }
 
@@ -61,8 +56,8 @@ public class ConvidadoBO {
         return  convidadoDAO.findByIdConvite(idConvite);
     }
 
-    public ArrayList<ConvidadoTO> findCOnfirmados(String status){
+    public ArrayList<ConvidadoTO> findConfirmados(String status){
         convidadoDAO = new ConvidadoDAO();
-        return  convidadoDAO.findConfirmados(status);
+        return convidadoDAO.findConfirmados(status);
     }
 }

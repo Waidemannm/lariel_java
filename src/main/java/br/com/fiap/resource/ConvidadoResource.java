@@ -118,7 +118,7 @@ public class ConvidadoResource {
     @Path("/confirmados/{status}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findConfirmados(@PathParam("status") String status){
-        ArrayList<ConvidadoTO> resultado = convidadoBO.findCOnfirmados(status);
+        ArrayList<ConvidadoTO> resultado = convidadoBO.findConfirmados(status);
         Response.ResponseBuilder response = null;
         if (resultado != null){
             response = Response.ok();
