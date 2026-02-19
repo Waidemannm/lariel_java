@@ -118,6 +118,23 @@ public class ConvidadoDAO {
         return null;
     }
 
+    public ConvidadoTO updateStatusAusencia(ConvidadoTO convidadoTO){
+        String sql = "UPDATE T_LS_CONVIDADOS SET ST_PRESENCA = 'A' WHERE ID_CONVIDADO = ?";
+        try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
+            ps.setLong(1, convidadoTO.getIdConvidado());
+            if (ps.executeUpdate() > 0) {
+                return convidadoTO;
+            } else {
+                return null;
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao atualizar status: " + e.getMessage());
+        }finally {
+            ConnectionFactory.closeConnection();
+        }
+        return null;
+    }
+
     public ArrayList<ConvidadoTO> findByIdConvite(String idConvite){
         ArrayList<ConvidadoTO> convidados = new ArrayList<>();
         String sql = "SELECT * FROM T_LS_CONVIDADOS WHERE ID_NM_CONVITE = ? ORDER BY NM_CONVIDADO";

@@ -99,6 +99,22 @@ public class ConvidadoResource {
         return response.build();
     }
 
+    @PUTm
+    @Path("/status_update_ausencia/{idConvidado}")
+    public Response updateStatusAusencia(@PathParam("idConvidado") Long idConvidado){
+        ConvidadoTO convidadoTO = new ConvidadoTO();
+        convidadoTO.setIdConvidado(idConvidado);
+        ConvidadoTO resultado = convidadoBO.updateStatus(convidadoTO);
+        Response.ResponseBuilder response = null;
+        if (resultado != null){
+            response = Response.created(null);  // 201 - CREATED
+        } else {
+            response = Response.status(400);  // 400 - BAD REQUEST
+        }
+        response.entity(resultado);
+        return response.build();
+    }
+
     @GET
     @Path("/convidados_de/{idConvite}")
     @Produces(MediaType.APPLICATION_JSON)

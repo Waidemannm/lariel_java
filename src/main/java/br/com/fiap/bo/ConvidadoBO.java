@@ -51,6 +51,11 @@ public class ConvidadoBO {
         return convidadoDAO.updateStatus(convidadoTO);
     }
 
+    public ConvidadoTO updateStatusAusencia(ConvidadoTO convidadoTO){
+        convidadoDAO = new ConvidadoDAO();
+        return convidadoDAO.updateStatusAusencia(convidadoTO);
+    }
+
     public ArrayList<ConvidadoTO> findByIdConvite(String idConvite){
         convidadoDAO = new ConvidadoDAO();
         return  convidadoDAO.findByIdConvite(idConvite);
