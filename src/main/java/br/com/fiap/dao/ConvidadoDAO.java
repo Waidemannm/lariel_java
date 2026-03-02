@@ -157,7 +157,7 @@ public class ConvidadoDAO {
         return convidados;
     }
 
-    public ArrayList findConfirmados(String status){
+    public ArrayList<ConvidadoTO> findConfirmados(String status){
         ArrayList<ConvidadoTO> convidadosConfirmados = new ArrayList<>();
         String sql = "SELECT * FROM T_LS_CONVIDADOS WHERE ST_PRESENCA = ? ORDER BY NM_CONVIDADO";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
